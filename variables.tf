@@ -39,7 +39,7 @@ variable "private_subnet_count" {
 variable "public_subnet_cidr_blocks" {
   description = "Available cidr blocks for public subnets"
   type        = list(string)
-  default     = [
+  default = [
     "10.0.1.0/24",
     "10.0.2.0/24",
     "10.0.3.0/24",
@@ -54,7 +54,7 @@ variable "public_subnet_cidr_blocks" {
 variable "private_subnet_cidr_blocks" {
   description = "Available cidr blocks for private subnets"
   type        = list(string)
-  default     = [
+  default = [
     "10.0.101.0/24",
     "10.0.102.0/24",
     "10.0.103.0/24",
@@ -69,14 +69,23 @@ variable "private_subnet_cidr_blocks" {
 variable "resource_tags" {
   description = "Tags to set for all resources"
   type        = map(string)
-  default     = {
-    project     = "my-project",
-    environment = "dev"
-  }
+  default     = {}
 }
 
 variable "ec2_instance_type" {
   description = "AWS EC2 instance type."
   type        = string
   default     = "t2.micro"
+}
+
+variable "project_name" {
+  description = "Name of the project."
+  type        = string
+  default     = "my-project"
+}
+
+variable "environment" {
+  description = "Name of the environment."
+  type        = string
+  default     = "dev"
 }
